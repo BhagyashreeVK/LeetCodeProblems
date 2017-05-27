@@ -39,7 +39,7 @@ public class ReverseString {
 	}
 
 	public void reverse(char[] s, int begin, int end) {
-		for (int i = begin; i >= (end - begin) / 2; i--) {
+		for (int i = 0; i < (end - begin) / 2; i++) {
 			char temp = s[begin + i];
 			s[begin + i] = s[end - 1 - i];
 			s[end - 1 - i] = temp;

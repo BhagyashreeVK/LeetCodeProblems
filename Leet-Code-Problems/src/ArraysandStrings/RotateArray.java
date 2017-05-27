@@ -8,12 +8,21 @@ public class RotateArray {
 	 */
 
 	// Time O(n), Space O(1)
-	public void rotateArray(int[] array, int steps) {
+	public void shiftArrayToRight(int[] array, int steps) {
 		steps %= array.length;
 		reverse(array, 0, array.length - 1);
 		reverse(array, 0, steps - 1);
 		reverse(array, steps, array.length - 1);
 	}
+	
+	// if [1,2,3,4,5,6,7] rotated by 2 steps gives [3,4,5,6,7,1,2]
+	public void rotateArray(int[] array, int steps){
+		steps %=array.length;
+		reverse(array, 0, steps - 1);
+		reverse(array, steps, array.length - 1);
+		reverse(array, 0, array.length - 1);
+	}
+	
 
 	public void reverse(int[] array, int begin, int end) {
 		while (begin < end) {
@@ -28,9 +37,16 @@ public class RotateArray {
 	public static void main(String[] args) {
 
 		RotateArray rs = new RotateArray();
-		int[] array = { 0, 1, 2, 3, 4, 5, 6 };
-		rs.rotateArray(array, 3);
+		int[] array = {1, 2, 3, 4, 5, 6, 7};
+		//rs.shiftArrayToRight(array, 3);
 
+		for (int i : array) {
+			System.out.print(i + " ");
+		}
+		
+		rs.rotateArray(array, 3);
+		
+		System.out.println("\n");
 		for (int i : array) {
 			System.out.print(i + " ");
 		}

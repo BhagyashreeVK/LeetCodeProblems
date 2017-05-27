@@ -42,7 +42,11 @@ public class ImplementStrStr {
 		String haystack = "aabbc123ddgg";
 		String needle = "123";
 
-		System.out.println(implStr.StrStr(haystack, needle));
+	    needle = null;
+	    
+	    System.out.println(needle.isEmpty());
+	    
+		//System.out.println(implStr.StrStr(haystack, needle));
 
 	}
 

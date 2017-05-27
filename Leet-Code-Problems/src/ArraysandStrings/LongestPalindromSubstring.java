@@ -12,8 +12,8 @@ public class LongestPalindromSubstring {
 			int len  = Math.max(len1, len2);
 			
 			if(len > endIndex - startIndex){
-				startIndex = i - (len -1)/2;
-				endIndex = i + len/2;
+				startIndex = i - ((len-1)/2);
+				endIndex = i + (len/2);
 			}
 			
 		}

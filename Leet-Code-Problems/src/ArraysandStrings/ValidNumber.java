@@ -4,13 +4,16 @@ public class ValidNumber {
 	public boolean isValidNUmber(String s) {
 		int i = 0;
 		boolean isNumeric = false;
+		
+		// handle leading white spaces
 		while (i < s.length() && Character.isWhitespace(s.charAt(i))) {
 			i++;
 		}
+		//handle sign
 		if (s.charAt(i) == '+' || s.charAt(i) == '-') {
 			i++;
 		}
-		// handle leading white spaces
+		
 		while (i < s.length() && Character.isDigit(s.charAt(i))) {
 			i++;
 			isNumeric = true;

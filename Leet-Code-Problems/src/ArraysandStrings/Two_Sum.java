@@ -53,14 +53,47 @@ public class Two_Sum {
 		}
 	}
 
+	public int[] findSum(int[] array, int sum){
+		int difference = 0;
+		HashMap<Integer,Integer> hm = new HashMap<Integer,Integer>();
+		for(int i=0; i< array.length;i++){
+		difference = sum - array[i];
+		if(hm.containsKey(difference)){
+		return new int[] {hm.get(difference)+1, i+1};
+		}
+		hm.put(array[i],i);
+		}
+		throw new IllegalArgumentException("No Two Sum Solution");
+		}
+	
+	
+
+public int[] findSum2(int[] array, int sum){
+
+
+int i = 0, j = array.length -1;
+int currentSum =  0;
+while(i<j){
+currentSum= array[i] + array[j];
+if(currentSum < sum){
+i++;
+} else if(currentSum > sum){
+j--;
+} else if(currentSum == sum){
+return new int[]{i+1, j+1};
+}
+}
+throw new IllegalArgumentException("No solution found");
+}
+	
 	public static void main(String[] args) {
 
 		Two_Sum twoSum = new Two_Sum();
 
-		int[] firstArray = { 1, 4, 12, 21, 9, 2 }; // unsorted Array
+		int[] firstArray = { 1, 4, 4, 21, 9, 2 }; // unsorted Array
 		int[] secondArray = { 1, 2, 4, 9, 12, 21 }; // sorted Array
 
-		int[] solution1 = twoSum.twoSum(firstArray, 33);
+		int[] solution1 = twoSum.twoSum(firstArray, 8);
 		int[] solution2 = twoSum.twoSumSortedArray(secondArray, 33);
 
 		twoSum.printArray(solution1);

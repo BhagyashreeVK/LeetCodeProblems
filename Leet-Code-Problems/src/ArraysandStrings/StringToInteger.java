@@ -25,10 +25,17 @@ public class StringToInteger {
 		}
 		
 		while (i < s.length() && Character.isDigit(s.charAt(i))) {
+			
+			/*if(Character.isWhitespace(s.charAt(i))){
+				i++;
+				continue;
+			}*/
+			
 			int digit = Character.getNumericValue(s.charAt(i));
 			if (num > maxDiv10 || num == maxDiv10 && digit >= 8) {
 				return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
 			}
+			
 			num = num * 10 + digit;
 			i++;
 		}
@@ -37,7 +44,7 @@ public class StringToInteger {
 
 	public static void main(String[] args) {
 		StringToInteger atoi = new StringToInteger();
-		String s = "-12345";
+		String s = "-123  45";
 		System.out.println(atoi.atoi(s));
 	}
 }
